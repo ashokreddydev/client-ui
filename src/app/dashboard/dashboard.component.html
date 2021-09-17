@@ -1,0 +1,25 @@
+﻿<table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>UserName</th>
+        <th>Ip</th>
+        <th>Login Time</th>
+        <th>Logout TIme</th>
+        <th>status</th>
+       
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let ls of loginList">
+       
+        <td>{{ls.UserName}}</td>
+        <td>{{ls.loginIp}}</td>
+        <td>{{ls.loginTime | date:'short'}}</td>
+        <td *ngIf = "!ls.loginEndTime" > - </td>
+        <td *ngIf = "ls.loginEndTime">{{ls.loginEndTime | date:'short' }}</td>
+        <td>{{ls.isActive ? 'Login' : 'Logout'}}</td>
+    
+      </tr>
+  
+    </tbody>
+  </table>

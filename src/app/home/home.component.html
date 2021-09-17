@@ -1,0 +1,31 @@
+﻿
+         <button (click)='auditor()' *ngIf = "currentUser.role == 'AUDITOR'" button type="button" class="btn btn-primary active">Login History</button>
+         <p></p>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+            <!-- <th>Id</th> -->
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Username</th>
+          <th>Role</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users | paginate:pagination ">
+          <!-- <td>John</td> -->
+          <td>{{user.firstName}}</td>
+          <td>{{user.lastName}}</td>
+          <td>{{user.username}}</td>
+          <td>{{user.role}}</td>
+          <td><a (click)="deleteUser(user.id)" class="text-danger">Delete</a></td>
+        </tr>
+    
+      </tbody>
+    </table>
+
+    <pagination-controls id="users"   (pageChange)="pageChanged($event)"></pagination-controls>
+
+    
+ 
